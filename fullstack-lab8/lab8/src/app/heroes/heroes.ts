@@ -1,14 +1,33 @@
 import { Component } from '@angular/core';
+import {
+  NgIf,
+  NgFor,
+  UpperCasePipe,
+} from '@angular/common';
+import { FormsModule } from '@angular/forms';
+import { RemoveSpacesPipe } from '../remove-spaces-pipe';
 import { Hero } from '../hero';
+import { HEROES } from '../mock-heroes';
+
 @Component({
+  standalone: true,
   selector: 'app-heroes',
-  standalone: false,
   templateUrl: './heroes.html',
-  styleUrl: './heroes.css',
+  styleUrls: ['./heroes.css'],
+  imports: [
+    FormsModule,
+    NgIf,
+    NgFor,
+    UpperCasePipe,
+    RemoveSpacesPipe,
+  ],
 })
+
 export class Heroes {
-  hero: Hero = {
-    id: 1,
-    name: 'Windstorm',
-  };
+  heroes = HEROES;
+  selectedHero?: Hero;
+
+  onSelect(hero: Hero): void {
+    this.selectedHero = hero;
+  }
 }

@@ -5,11 +5,13 @@ import { FormsModule } from '@angular/forms';
 import { AppRoutingModule } from './app-routing-module';
 import { App } from './app';
 import { Heroes } from './heroes/heroes';
+import { RemoveSpacesPipe } from './remove-spaces-pipe';
+import { InputFormat } from './input-format';
 
 @NgModule({
-  declarations: [App, Heroes],
-  imports: [BrowserModule, AppRoutingModule, FormsModule],
+  declarations: [App, InputFormat],
+  imports: [BrowserModule, AppRoutingModule, FormsModule, Heroes, RemoveSpacesPipe],
   providers: [provideBrowserGlobalErrorListeners()],
   bootstrap: [App],
 })
-export class AppModule { }
+export class AppModule {}
